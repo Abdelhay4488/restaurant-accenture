@@ -1,0 +1,18 @@
+<div class="card mb-3 w-100 cursor" (click)="goToUpdateDish()">
+<!--<div class="card mb-3 w-100 cursor" [routerLink]="['dish',dish.id]">-->
+  <div class="row no-gutters">
+
+    <div class="col-md-4">
+      <img [src]="dish?.url" class="card-img w-100 h-100" [alt]="dish?.title">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title d-inline-block font-weight-bold mr-4 "> {{dish?.title}}</h5>
+        <h5 class=" card-text d-inline-block text-danger font-weight-bold font-size-16 text-right"> {{dish?.price}} $</h5>
+        <button          (click)="DeleteMethod($event)">delete</button>
+        <hr>
+        <p class="card-text mr-2 text-left"> {{dish?.description}}.</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="row m-0 min-height">
+  <div class=" wrapper col col-12  ">
+    <div class="form-row my-3">
+      <div class="form-group col-6 offset-3">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" id="title" placeholder="spagetti" (input)="onUpdateTitle($event)" >
+
+      </div>
+    </div>
+    <div class="form-row my-3">
+      <div class="form-group col-6 offset-3">
+        <label for="dish-price">Price</label>
+        <input type="text" class="form-control" id="dish-price" placeholder="10$" (input)="onUpdatePrice($event)" >
+
+      </div>
+    </div>
+    <div class="form-row my-3">
+      <div class="form-group col-6 offset-3">
+        <label for="url">Url</label>
+        <input type="text" class="form-control" id="url" placeholder="url..." (input)="onUpdateUrl($event)" >
+      </div>
+    </div>
+    <div class="form-row my-3">
+      <div class="form-group col-6 offset-3">
+        <label for="description">Description</label>
+        <textarea class="form-control" id="description" rows="3" (input)="onUpdateDescription($event)" ></textarea>
+      </div>
+    </div>
+    <div class="row my-3">
+      <div class="col col-3 offset-4">
+        <button type="submit" class="btn btn-primary w-100 bg-dark" (click)="onTriggerCreateReqToBackEnd()" >Create</button>
+      </div>
+    </div>
+  </div>
+
+
+
+
+</div>
