@@ -14,26 +14,26 @@ export class HttpServiceService {
   constructor(private httpClient:HttpClient) {}
 
   fetchData(){
-    return this.httpClient.get(environment.baseUrl+"/dishes");
+    return this.httpClient.get(environment.baseUrl+"/api/dishes");
   }
 
   getDishByID(id:number){
-    return this.httpClient.get(environment.baseUrl+"/dish/"+id);
+    return this.httpClient.get(environment.baseUrl+"/api/dish/"+id);
 
   }
 
   updateData(dish:Dish){
 
-    return this.httpClient.put(environment.baseUrl+"/dish",dish);
+    return this.httpClient.put(environment.baseUrl+"/api/dish",dish);
   }
 
   deleteItem(id:number):Observable<any>{
-    return this.httpClient.delete(environment.baseUrl+"/dish/"+id,{responseType: 'text'});
+    return this.httpClient.delete(environment.baseUrl+"/api/dish/"+id,{responseType: 'text'});
   }
 
   createDish(dish:Dish){
 
-    return this.httpClient.post(environment.baseUrl+"/dish",dish);
+    return this.httpClient.post(environment.baseUrl+"/api/dish",dish);
   }
 
 

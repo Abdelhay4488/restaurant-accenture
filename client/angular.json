@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "restaurant-accensure"
+  "defaultProject": "restaurant-accensure",
+  "cli": {
+    "analytics": false
+  }
 }
