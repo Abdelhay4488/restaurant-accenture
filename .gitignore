@@ -29,9 +29,11 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 /client/node_modules
+/client/dist
 
 ### VS Code ###
 .vscode/
 
 ## others ##
 .directory
+*.pem
