@@ -1,0 +1,48 @@
+version: "3.3"
+networks:
+  accentureRestaurantNetwork:
+    driver: bridge
+
+
+services:
+
+  db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'restaurantAccenture'
+      MYSQL_ROOT_PASSWORD: 'abdelhay'
+    ports:
+      - '3306:3306'
+    networks:
+      - accentureRestaurantNetwork
+    volumes:
+      - my-db:/var/lib/mysql
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend
+    ports:
+      - 9191:9191
+    networks:
+      - accentureRestaurantNetwork
+
+#    links:
+#      - db
+    depends_on:
+      - db
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend
+    networks:
+      - accentureRestaurantNetwork
+    ports:
+      - 80:80
+    depends_on:
+      - backend
+
+
+volumes:
+  my-db:
