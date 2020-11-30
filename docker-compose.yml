@@ -3,7 +3,9 @@ networks:
   accentureRestaurantNetwork:
     driver: bridge
 
+
 services:
+
   db:
     image: mysql
     restart: always
@@ -25,9 +27,11 @@ services:
       - 9191:9191
     networks:
       - accentureRestaurantNetwork
+
+#    links:
+#      - db
     depends_on:
       - db
-
   frontend:
     build:
       context: .
@@ -38,5 +42,7 @@ services:
       - 80:80
     depends_on:
       - backend
+
+
 volumes:
   my-db:

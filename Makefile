@@ -1,15 +1,8 @@
 #commands to only run infrastructure
 start:
-	#docker-compose up --build || docker-compose down
 	docker-compose up --build
 stop:
 	docker-compose down
-
-start-local:
-	docker-compose -f docker-compose-local.yml up --build || docker-compose -f docker-compose-local.yml down
-
-stop-local:
-	docker-compose -f docker-compose-local.yml down
 
 start-spring:
 	#docker-compose -f docker-compose-spring.yml up --build || docker-compose -f docker-compose-spring.yml down
@@ -18,14 +11,12 @@ start-spring:
 stop-spring:
 	docker-compose -f docker-compose-spring.yml down
 
-build-backend:
-	docker build -t my-backend -f backend .
+start-db:
+	docker-compose -f db-local.yml up --build || docker-compose -f db-local.yml down
 
-run-backend:
-	docker run --name my-backend-container -p 9191:9191 my-backend
+stop-db:
+	docker-compose -f db-local.yml down
 
-remove-backend:
-	docker container rm my-backend-container && docker image rmi my-backend && docker volume prune -f
 ps:
 	docker container ps
 ps-a:
