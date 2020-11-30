@@ -29,6 +29,22 @@
             "scripts": []
           },
           "configurations": {
+            "dev": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.dev.ts"
+                }
+              ]
+            },
+            "docker": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.docker.ts"
+                }
+              ]
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -66,6 +82,12 @@
           "configurations": {
             "production": {
               "browserTarget": "restaurant-accensure:build:production"
+            },
+            "dev": {
+              "browserTarget": "restaurant-accensure:build:dev"
+            },
+            "docker": {
+              "browserTarget": "restaurant-accensure:build:docker"
             }
           }
         },
