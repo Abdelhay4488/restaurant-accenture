@@ -9,6 +9,7 @@ import {RouterModule} from "@angular/router";
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {DishCreateComponent} from "./components/dish-create/dish-create.component";
+import { UploadImageComponent } from './components/upload-image/upload-image.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import {DishCreateComponent} from "./components/dish-create/dish-create.componen
     HomeComponent,
     CarouselComponent,
     DishUpdateComponent,
-    DishCreateComponent
+    DishCreateComponent,
+    UploadImageComponent
   ],
   imports: [
     CommonModule,

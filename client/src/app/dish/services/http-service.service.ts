@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpEvent, HttpRequest} from "@angular/common/http";
 import {Dish} from "../models/dish.model";
 import {Observable} from "rxjs";
 import {environment} from "../../../environments/environment";
@@ -34,6 +34,17 @@ export class HttpServiceService {
   createDish(dish:Dish){
 
     return this.httpClient.post(environment.baseUrl+"/api/dish",dish);
+  }
+
+
+  pushFileToStorage(file: File): Observable<HttpEvent<{}>> {
+    const data: FormData = new FormData();
+    data.append('file', file);
+    const newRequest = new HttpRequest('POST', 'http://localhost:8080/uploadFile', data, {
+      reportProgress: true,
+      responseType: 'text'
+    });
+    return this.httpClient.request(newRequest);
   }
 
 
