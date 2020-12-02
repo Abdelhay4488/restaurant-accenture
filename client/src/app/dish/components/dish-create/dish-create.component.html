@@ -21,7 +21,7 @@
       </div>
     </div>-->
 
-    <app-upload-image></app-upload-image>
+    <app-upload-image (fileSelected)="onFileSelected($event)"></app-upload-image>
 
     <div class="form-row my-3">
       <div class="form-group col-6 offset-3">
