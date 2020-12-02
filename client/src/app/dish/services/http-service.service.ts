@@ -31,9 +31,18 @@ export class HttpServiceService {
     return this.httpClient.delete(environment.baseUrl+"/api/dish/"+id,{responseType: 'text'});
   }
 
-  createDish(dish:Dish){
+  // createDish(dish:Dish,file: any){
+  createDish(dish:Dish,file: FileList){
 
-    return this.httpClient.post(environment.baseUrl+"/api/dish",dish);
+    const data: FormData = new FormData();
+    data.append('file', file[0]);
+    data.append('dish', new Blob([
+        JSON.stringify(dish)
+    ], {
+          type: "application/json"
+        }
+    ));
+    return this.httpClient.post(environment.baseUrl+"/api/dish",data);
   }
 
 

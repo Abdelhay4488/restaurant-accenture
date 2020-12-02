@@ -14,6 +14,7 @@ export class DishCreateComponent implements OnInit {
   constructor(private httpservice:HttpServiceService ,private httpclient:HttpClient,private router: Router) { }
 
   newDish:Dish = new Dish();
+  fileList:FileList;
 
   ngOnInit(): void {
 
@@ -45,10 +46,12 @@ export class DishCreateComponent implements OnInit {
     console.log(this.newDish);
   }
 
-
+  onFileSelected(fileList){
+    this.fileList = fileList;
+  }
   onTriggerCreateReqToBackEnd(){
     console.log(this.newDish);
-    this.httpservice.createDish(this.newDish).subscribe(
+    this.httpservice.createDish(this.newDish,this.fileList).subscribe(
       (response)=>{
         console.log(response);
         this.router.navigate(['']);

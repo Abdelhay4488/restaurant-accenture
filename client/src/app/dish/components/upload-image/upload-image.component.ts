@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {HttpServiceService} from "../../services/http-service.service";
 
@@ -10,6 +10,8 @@ import {HttpServiceService} from "../../services/http-service.service";
 export class UploadImageComponent implements OnInit {
 
   constructor(private httpservice: HttpServiceService, private https:HttpClient){}
+
+  @Output() fileSelected= new EventEmitter<FileList>();
 
   ngOnInit(): void {}
 
@@ -57,6 +59,9 @@ export class UploadImageComponent implements OnInit {
   }
   selectFile(event) {
     this.selectedFiles = event.target.files;
+    this.fileSelected.emit(this.selectedFiles);
+    console.log("event:",event);
+    console.log("selectedFiles:",this.selectedFiles);
   }
 
 }
