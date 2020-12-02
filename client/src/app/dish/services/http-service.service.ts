@@ -40,11 +40,17 @@ export class HttpServiceService {
   pushFileToStorage(file: File): Observable<HttpEvent<{}>> {
     const data: FormData = new FormData();
     data.append('file', file);
-    const newRequest = new HttpRequest('POST', 'http://localhost:8080/uploadFile', data, {
+    const newRequest = new HttpRequest('POST', environment.baseUrl+"/uploadFile", data, {
       reportProgress: true,
       responseType: 'text'
     });
     return this.httpClient.request(newRequest);
+  }
+
+  deleteFileService(file:string)
+  {
+    return this.httpClient.post<string>(environment.baseUrl+"/deleteFile",file);
+
   }
 
 
