@@ -1,0 +1,8 @@
+/home/moha141/0-Hebamme/abdelhay/restaurant-accenture/server/src/main/java/de/accenture/restaurant/controller/DishController.java
+/home/moha141/0-Hebamme/abdelhay/restaurant-accenture/server/src/main/java/de/accenture/restaurant/RestaurantApplication.java
+/home/moha141/0-Hebamme/abdelhay/restaurant-accenture/server/src/main/java/de/accenture/restaurant/controller/S3BucketController.java
+/home/moha141/0-Hebamme/abdelhay/restaurant-accenture/server/src/main/java/de/accenture/restaurant/config/CorsConfig.java
+/home/moha141/0-Hebamme/abdelhay/restaurant-accenture/server/src/main/java/de/accenture/restaurant/repository/DishRepository.java
+/home/moha141/0-Hebamme/abdelhay/restaurant-accenture/server/src/main/java/de/accenture/restaurant/service/DishService.java
+/home/moha141/0-Hebamme/abdelhay/restaurant-accenture/server/src/main/java/de/accenture/restaurant/entity/Dish.java
+/home/moha141/0-Hebamme/abdelhay/restaurant-accenture/server/src/main/java/de/accenture/restaurant/service/AmazonS3BucketService.java
