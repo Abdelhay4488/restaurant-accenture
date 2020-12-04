@@ -27,11 +27,18 @@ services:
       - 9191:9191
     networks:
       - accentureRestaurantNetwork
-
-#    links:
-#      - db
     depends_on:
       - db
+    command: >
+      /bin/bash -c "
+        while ! nc -z db 3306;
+        do
+          echo sleeping;
+          sleep 1;
+        done;
+        echo Connected!;
+      "
+
   frontend:
     build:
       context: .

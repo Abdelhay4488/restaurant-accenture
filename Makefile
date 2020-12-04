@@ -4,13 +4,6 @@ start:
 stop:
 	docker-compose down
 
-start-spring:
-	#docker-compose -f docker-compose-spring.yml up --build || docker-compose -f docker-compose-spring.yml down
-	docker-compose -f docker-compose-spring.yml up --build
-
-stop-spring:
-	docker-compose -f docker-compose-spring.yml down
-
 start-db:
 	docker-compose -f db-local.yml up --build || docker-compose -f db-local.yml down
 
