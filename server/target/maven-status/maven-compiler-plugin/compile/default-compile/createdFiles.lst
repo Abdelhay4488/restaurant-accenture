@@ -1,8 +1,0 @@
-de/accenture/restaurant/config/CorsConfig.class
-de/accenture/restaurant/controller/S3BucketController.class
-de/accenture/restaurant/service/AmazonS3BucketService.class
-de/accenture/restaurant/repository/DishRepository.class
-de/accenture/restaurant/service/DishService.class
-de/accenture/restaurant/controller/DishController.class
-de/accenture/restaurant/RestaurantApplication.class
-de/accenture/restaurant/entity/Dish.class
