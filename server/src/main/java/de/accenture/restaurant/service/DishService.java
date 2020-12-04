@@ -5,7 +5,9 @@ import de.accenture.restaurant.entity.Dish;
 import de.accenture.restaurant.repository.DishRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.net.URL;
 import java.util.List;
 
 @Service
@@ -13,11 +15,15 @@ public class DishService {
 
     @Autowired
     private DishRepository repository;
+    @Autowired
+    private AmazonS3BucketService amazonS3BucketService ;
 
     // Post Method
 
     // if you will save only one Dish
-    public Dish createDish(Dish dish){
+    public Dish createDish(MultipartFile file,Dish dish){
+        URL url  = this.amazonS3BucketService.uploadFile( file);
+        dish.setUrl(url.toString());
         return repository.save(dish);
     }
 

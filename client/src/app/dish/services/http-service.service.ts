@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpEvent, HttpRequest} from "@angular/common/http";
 import {Dish} from "../models/dish.model";
 import {Observable} from "rxjs";
 import {environment} from "../../../environments/environment";
@@ -31,9 +31,35 @@ export class HttpServiceService {
     return this.httpClient.delete(environment.baseUrl+"/api/dish/"+id,{responseType: 'text'});
   }
 
-  createDish(dish:Dish){
+  // createDish(dish:Dish,file: any){
+  createDish(dish:Dish,file: FileList){
 
-    return this.httpClient.post(environment.baseUrl+"/api/dish",dish);
+    const data: FormData = new FormData();
+    data.append('file', file[0]);
+    data.append('dish', new Blob([
+        JSON.stringify(dish)
+    ], {
+          type: "application/json"
+        }
+    ));
+    return this.httpClient.post(environment.baseUrl+"/api/dish",data);
+  }
+
+
+  pushFileToStorage(file: File): Observable<HttpEvent<{}>> {
+    const data: FormData = new FormData();
+    data.append('file', file);
+    const newRequest = new HttpRequest('POST', environment.baseUrl+"/uploadFile", data, {
+      reportProgress: true,
+      responseType: 'text'
+    });
+    return this.httpClient.request(newRequest);
+  }
+
+  deleteFileService(file:string)
+  {
+    return this.httpClient.post<string>(environment.baseUrl+"/deleteFile",file);
+
   }
 
 

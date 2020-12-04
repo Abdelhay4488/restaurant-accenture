@@ -13,7 +13,7 @@ export class DishComponent implements OnInit {
   @Output() dishDeleted = new EventEmitter();
 
   constructor(
-    private router: Router, private httpservice: HttpServiceService
+    private router: Router
   ) { }
 
   ngOnInit(): void {

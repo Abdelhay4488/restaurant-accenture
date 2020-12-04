@@ -5,8 +5,10 @@ import de.accenture.restaurant.entity.Dish;
 import de.accenture.restaurant.service.DishService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
+
 
 
 @RestController
@@ -29,9 +31,11 @@ public class DishController {
 
     // Post only one Dish
     // @RequestBody because we will have an input Json and will be passed to the Dish object
-    @PostMapping("/dish")
-    public Dish createDish(@RequestBody Dish dish){
-        return service.createDish(dish);
+//    @PostMapping("/dish")
+    @RequestMapping(value = "/dish", method = RequestMethod.POST, consumes = {"multipart/form-data"})
+    @ResponseBody
+    public Dish createDish(@RequestPart(value = "dish")  Dish dish,@RequestPart(value = "file") MultipartFile file){
+        return service.createDish(file, dish);
     }
 
 
