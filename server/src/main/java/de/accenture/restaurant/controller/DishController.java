@@ -10,7 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 
 
-@CrossOrigin(origins = "http://localhost:4200")
+
 @RestController
 @RequestMapping("/api")
 public class DishController {
@@ -61,6 +61,7 @@ public class DishController {
     }
 
     // Delete Method
+    @CrossOrigin(origins = "*")
     @DeleteMapping("/dish/{id}")
     public String deleteDish(@PathVariable int id){
         return service.deleteDish(id);
